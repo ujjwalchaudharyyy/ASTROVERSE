@@ -195,7 +195,8 @@ export default function ChakshuAI() {
 
   // Redirect handler for Start button
   const handleStartClick = () => {
-    window.location.href = "http://127.0.0.1:8051/";
+    const targetUrl = process.env.REACT_APP_MODEL_URL || "http://127.0.0.1:8051/";
+    window.location.href = targetUrl;
   };
 
   return (
