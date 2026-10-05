@@ -195,8 +195,21 @@ export default function ChakshuAI() {
 
   // Redirect handler for Start button
   const handleStartClick = () => {
-    const targetUrl = process.env.REACT_APP_MODEL_URL || "http://127.0.0.1:8051/";
-    window.location.href = targetUrl;
+    const targetUrl = process.env.REACT_APP_MODEL_URL;
+    if (targetUrl) {
+      window.location.href = targetUrl;
+      return;
+    }
+
+    const hostname = window.location.hostname;
+    if (hostname === "localhost" || hostname === "127.0.0.1") {
+      window.location.href = "http://127.0.0.1:8051/";
+    } else {
+      alert(
+        "Notice: The Streamlit AI Model (app.py) runs on Python. To connect a live online model to Vercel, set the REACT_APP_MODEL_URL environment variable in your Vercel Project Settings.\n\nRedirecting to Mission section..."
+      );
+      handleScroll("mission-section");
+    }
   };
 
   return (
