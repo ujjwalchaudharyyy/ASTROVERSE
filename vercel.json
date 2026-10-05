@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "buildCommand": "cd chakshu-ai && npm install && npm run build",
+  "outputDirectory": "chakshu-ai/build",
+  "framework": "create-react-app",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}

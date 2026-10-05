@@ -1,4 +1,11 @@
 {
+  "name": "astroverse",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "cd chakshu-ai && npm start",
+    "build": "cd chakshu-ai && npm install && npm run build"
+  },
   "dependencies": {
     "framer-motion": "^12.23.22"
   },
